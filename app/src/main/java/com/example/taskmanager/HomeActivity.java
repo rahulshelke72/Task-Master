@@ -23,13 +23,14 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-//import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-//import de.hdodenhof.circleimageview.CircleImageView;
-//import io.github.inflationx.viewpump.ViewPumpContextWrapper;
+import de.hdodenhof.circleimageview.CircleImageView;
+import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -39,12 +40,12 @@ public class HomeActivity extends AppCompatActivity {
     FirebaseFirestore db;
     String TAG="Homepage query docs";
     TextView userNameTv;
-//    CircleImageView userImageIv;
+    CircleImageView userImageIv;
     SearchView searchView;
-//    @Override
-//    protected void attachBaseContext(Context newBase) {
-//        super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
-//    }
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,23 +56,23 @@ public class HomeActivity extends AppCompatActivity {
         db=FirebaseFirestore.getInstance();
         taskRv=findViewById(R.id.taskListRv);
         userNameTv=findViewById(R.id.userNameTv);
-//        userImageIv=findViewById(R.id.userProfileIv);
+        userImageIv=findViewById(R.id.userProfileIv);
         searchView=findViewById(R.id.searchview);
 
 
-//
-//        userImageIv.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent=new Intent(HomeActivity.this,SettingsActivity.class);
-//                startActivity(intent);
-//            }
-//        });
+
+        userImageIv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(HomeActivity.this,SettingsActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
         userNameTv.setText(FirebaseAuth.getInstance().getCurrentUser().getDisplayName());
 
-//        Picasso.get().load(FirebaseAuth.getInstance().getCurrentUser().getPhotoUrl()).into(userImageIv);
+        Picasso.get().load(FirebaseAuth.getInstance().getCurrentUser().getPhotoUrl()).into(userImageIv);
 
 
 

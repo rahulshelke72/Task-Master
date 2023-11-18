@@ -86,71 +86,71 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.ViewHo
             viewHolder.taskStatusTv.setBackgroundColor(Color.parseColor("#ffffff"));
         }
 
-//        viewHolder.containerLl.setOnLongClickListener(new View.OnLongClickListener() {
-//            @Override
-//            public boolean onLongClick(View view) {
-//                PopupMenu popupMenu=new PopupMenu(view.getContext(),viewHolder.containerLl );
-//                popupMenu.inflate(R.menu.taskmenu);
-//                popupMenu.show();
-//
-//
-//                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-//                    @Override
-//                    public boolean onMenuItemClick(MenuItem menuItem) {
-//
-//                        if(menuItem.getItemId()==R.id.deleteMenu)
-//                        {
-//
-//
-//                            FirebaseFirestore.getInstance().collection("tasks").document(taskDataset.get(position).getTaskId()).delete()
-//                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-//                                        @Override
-//                                        public void onSuccess(Void unused) {
-//
-//                                            Toast.makeText(view.getContext(), "Item deleted",Toast.LENGTH_SHORT).show();
-//                                            viewHolder.containerLl.setVisibility(View.GONE);
-//
-//                                        }
-//                                    });
-//
-//
-//
-//                        }
-//
-//                        if(menuItem.getItemId()==R.id.markCompleteMenu)
-//                        {
-//
-//
-//                            TaskModel completedTask=taskDataset.get(position);
-//                            completedTask.setTaskStatus("completed");
-//
-//                            FirebaseFirestore.getInstance().collection("tasks").document(taskDataset.get(position).getTaskId())
-//                                    .set(completedTask).addOnSuccessListener(new OnSuccessListener<Void>() {
-//                                        @Override
-//                                        public void onSuccess(Void unused) {
-//                                            Toast.makeText(view.getContext(), "Task Item Marked As Completed",Toast.LENGTH_SHORT).show();
-//                                        }
-//                                    });
-//
-//
-//                            viewHolder.taskStatusTv.setBackgroundColor(Color.parseColor("#00FF00"));
-//                            viewHolder.taskStatusTv.setText("COMPLETED");
-//
-//
-//
-//                        }
-//
-//                        return false;
-//                    }
-//                });
-//
-//
-//
-//
-//
-//                return false;
-//            }
-//        });
+        viewHolder.containerLl.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                PopupMenu popupMenu=new PopupMenu(view.getContext(),viewHolder.containerLl );
+                popupMenu.inflate(R.menu.taskmenu);
+                popupMenu.show();
+
+
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem menuItem) {
+
+                        if(menuItem.getItemId()==R.id.deleteMenu)
+                        {
+
+
+                            FirebaseFirestore.getInstance().collection("tasks").document(taskDataset.get(position).getTaskId()).delete()
+                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void unused) {
+
+                                            Toast.makeText(view.getContext(), "Item deleted",Toast.LENGTH_SHORT).show();
+                                            viewHolder.containerLl.setVisibility(View.GONE);
+
+                                        }
+                                    });
+
+
+
+                        }
+
+                        if(menuItem.getItemId()==R.id.markCompleteMenu)
+                        {
+
+
+                            TaskModel completedTask=taskDataset.get(position);
+                            completedTask.setTaskStatus("completed");
+
+                            FirebaseFirestore.getInstance().collection("tasks").document(taskDataset.get(position).getTaskId())
+                                    .set(completedTask).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void unused) {
+                                            Toast.makeText(view.getContext(), "Task Item Marked As Completed",Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+
+
+                            viewHolder.taskStatusTv.setBackgroundColor(Color.parseColor("#00FF00"));
+                            viewHolder.taskStatusTv.setText("COMPLETED");
+
+
+
+                        }
+
+                        return false;
+                    }
+                });
+
+
+
+
+
+                return false;
+            }
+        });
 
 
 

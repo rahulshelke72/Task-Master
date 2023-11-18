@@ -53,6 +53,10 @@ dependencies {
         // Also add the dependency for the Google Play services library and specify its version
         implementation("com.google.android.gms:play-services-auth:20.7.0")
         implementation("com.google.android.material:material:1.11.0-rc01")
+        implementation("com.squareup.picasso:picasso:2.8")
+        implementation("de.hdodenhof:circleimageview:3.1.0")
+        implementation("io.github.inflationx:calligraphy3:3.1.1")
+        implementation("io.github.inflationx:viewpump:2.0.3")
     }
 
 }
